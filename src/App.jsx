@@ -20,9 +20,11 @@ function App() {
   }
 
   function handleBackspace() {
-    const currPin = [...pin];
-    currPin[currPinLength - 1] = "";
-    setPin(currPin);
+    if (currPinLength > 0) {
+      const currPin = [...pin];
+      currPin[currPinLength - 1] = "";
+      setPin(currPin);
+    }
   }
 
   return (
