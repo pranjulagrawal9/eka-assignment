@@ -7,8 +7,8 @@ function App() {
   const [keyPadNumbers, setKeyPadNumbers] = useState([
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
   ]);
-  const [pin, setPin] = useState(new Array(4).fill(""));
   const [totalDigits, setTotalDigits] = useState(4);
+  const [pin, setPin] = useState(new Array(totalDigits).fill(""));
 
   const handleNumberPress = useCallback(
     function handleNumberPress(key) {
@@ -46,7 +46,8 @@ function App() {
 
   function handleEnter(e) {
     e.stopPropagation();
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.target.value > 0) {
+      console.log(e.target.value);
       setPin(new Array(totalDigits).fill(""));
     }
   }
@@ -130,7 +131,7 @@ function App() {
               className={`border text-center py-2 font-medium ${
                 i === 0 ? "col-start-2 col-end-3 row-start-4" : ""
               }`}
-              onClick={() => handleNumberPress(i)}
+              onClick={() => handleNumberPress(value)}
             >
               {value}
             </button>
