@@ -95,7 +95,9 @@ function App() {
         </div>
 
         <div className="flex flex-col items-center gap-3">
-          <h2 className="uppercase font-medium">Enter 4-digit upi pin</h2>
+          <h2 className="uppercase font-medium">
+            Enter {pin.length}-digit upi pin
+          </h2>
           <div className="flex gap-4">
             {pin.map((_, i) => (
               <div
